@@ -10,7 +10,7 @@ class CRUD_Pokemon:
 
     
     #MÉTODO PARA CREAR POKEMON
-    def crear(self,nombre,especie,tipo,foto,passw):
+    def crear(self,nombre,especie,tipo,foto):
 
         for poke in self.pokemon:
 
@@ -18,7 +18,7 @@ class CRUD_Pokemon:
                 print('el nombre del usuario ya está en uso')
                 return False
 
-        nuevo = Pokemon(self.contador,nombre,especie,tipo,foto,passw)
+        nuevo = Pokemon(self.contador,nombre,especie,tipo,foto)
         self.pokemon.append(nuevo)
         self.contador += 1
         return True
@@ -35,8 +35,8 @@ class CRUD_Pokemon:
 
 var_crud = CRUD_Pokemon()
 
-var_crud.crear('Pika','Pikachu','Eléctrico','https','pass123')
-var_crud.crear('Pika2','Pikachu','Eléctrico','https','pass123')
-var_crud.crear('Chari','Charizard','Fuego','httpss','pass123')
+var_crud.crear('Pika','Pikachu','Eléctrico','https')
+var_crud.crear('Pika2','Pikachu','Eléctrico','https')
+var_crud.crear('Chari','Charizard','Fuego','httpss')
 
 var_crud.listar()
