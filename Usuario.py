@@ -17,4 +17,10 @@ class Usuario:
         print ("La autenticación fue incorrecta")
         return False
 
-    #def dump
+    def dump(self):
+
+        return {
+
+            'id' : self.id,
+            'nombre' : self.usuario
+        }

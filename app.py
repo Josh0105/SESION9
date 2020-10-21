@@ -13,14 +13,21 @@ def login():
 
     if request.method == "POST":
 
-        nombre = request.form.get("nombre_usuario")
-        passw = request.form.get("passw_usuario")
+        response = {}
+        
+
+        nombre = request.form.get('nombre_usuario')
+        passw = request.form.get('passw_usuario')
 
         for user in misUsuario:
-
+            
             if user.autenticar(nombre,passw) == True:
-
-                return "True"
+                
+                response["id"] = user.id
+                response["usuario"] = user.usuario
+                
+                return response
+                #return user.dump() # usando el metodo dentro de usuario
 
         return "False"
 
