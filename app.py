@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from Usuario import Usuario
 
 misUsuario = []
@@ -8,7 +8,21 @@ misUsuario.append(Usuario(2,"usuario2","123"))
 
 app = Flask(__name__)
 
-@app.route("/login/:user", methods=["POST"])
+@app.route("/login", methods=["POST"])
+def login():
+
+    if request.method == "POST":
+
+        nombre = request.form.get("nombre_usuario")
+        passw = request.form.get("passw_usuario")
+
+        for user in misUsuario:
+
+            if user.autenticar(nombre,passw) == True:
+
+                return "True"
+
+        return "False"
 
 
 

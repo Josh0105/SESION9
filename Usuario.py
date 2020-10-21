@@ -16,3 +16,5 @@ class Usuario:
         
         print ("La autenticación fue incorrecta")
         return False
+
+    def dump
